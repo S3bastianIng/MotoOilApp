@@ -9,8 +9,8 @@ interface Props {
 function formatEntry(entry: OilChangeEntry): string {
   const parts = [`${entry.date}`, `${entry.km} km`];
   const filters: string[] = [];
-  filters.push(entry.oilFilterChanged ? 'oil filter: YES' : 'oil filter: no');
-  filters.push(entry.airFilterChanged ? 'air filter: YES' : 'air filter: no');
+  filters.push(entry.oilFilterChanged ? 'filtro de aceite: SÍ' : 'filtro de aceite: no');
+  filters.push(entry.airFilterChanged ? 'filtro de aire: SÍ' : 'filtro de aire: no');
   const details = [entry.brand, entry.oilType].filter(Boolean).join(' ');
   return `${parts.join(' - ')}${details ? ` (${details})` : ''} - ${filters.join(', ')}`;
 }
@@ -22,20 +22,20 @@ export default function HistoryScreen({ entries, onDeleteLast }: Props) {
     if (entries.length === 0) return;
     const last = sortByKm(entries)[entries.length - 1];
     Alert.alert(
-      'Delete last entry',
-      `Delete the most recent entry (${last.date}, ${last.km} km)?`,
+      'Eliminar último registro',
+      `¿Eliminar el registro más reciente (${last.date}, ${last.km} km)?`,
       [
-        { text: 'Cancel', style: 'cancel' },
-        { text: 'Delete', style: 'destructive', onPress: onDeleteLast },
+        { text: 'Cancelar', style: 'cancel' },
+        { text: 'Eliminar', style: 'destructive', onPress: onDeleteLast },
       ],
     );
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>History</Text>
+      <Text style={styles.title}>Historial</Text>
       {sortedDesc.length === 0 ? (
-        <Text style={styles.empty}>No oil changes registered yet.</Text>
+        <Text style={styles.empty}>Aún no hay cambios de aceite registrados.</Text>
       ) : (
         <FlatList
           data={sortedDesc}
@@ -52,7 +52,7 @@ export default function HistoryScreen({ entries, onDeleteLast }: Props) {
         onPress={confirmDeleteLast}
         disabled={entries.length === 0}
       >
-        <Text style={styles.buttonText}>Delete last entry</Text>
+        <Text style={styles.buttonText}>Eliminar último registro</Text>
       </TouchableOpacity>
     </View>
   );

@@ -42,14 +42,14 @@ export default function RegisterScreen({ entries, settings, onSave }: Props) {
   const handleSave = () => {
     const parsedKm = Number(km);
     if (!Number.isFinite(parsedKm) || parsedKm <= 0) {
-      Alert.alert('Invalid km', 'Please enter a valid odometer reading greater than 0.');
+      Alert.alert('Km no válido', 'Ingrese una lectura de odómetro válida mayor que 0.');
       return;
     }
     const last = lastChangeKm(entries);
     if (entries.length > 0 && parsedKm < last) {
       Alert.alert(
-        'Invalid km',
-        `The km reading (${parsedKm}) is lower than the last oil change (${last} km).`,
+        'Km no válido',
+        `La lectura de km (${parsedKm}) es menor que el último cambio de aceite (${last} km).`,
       );
       return;
     }
@@ -67,52 +67,52 @@ export default function RegisterScreen({ entries, settings, onSave }: Props) {
     setOilType('');
     setOilFilterChanged(false);
     setAirFilterChanged(false);
-    Alert.alert('Saved', 'Oil change registered.');
+    Alert.alert('Guardado', 'Cambio de aceite registrado.');
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Register oil change</Text>
-      <Text style={styles.hint}>Date is set automatically to today.</Text>
+      <Text style={styles.title}>Registrar cambio de aceite</Text>
+      <Text style={styles.hint}>La fecha se asigna automáticamente a hoy.</Text>
 
-      <Text style={styles.label}>Odometer (km) *</Text>
+      <Text style={styles.label}>Odómetro (km) *</Text>
       <TextInput
         style={styles.input}
         value={km}
         onChangeText={setKm}
         keyboardType="numeric"
-        placeholder="e.g. 12500"
+        placeholder="ej. 12500"
       />
 
-      <Text style={styles.label}>Oil brand (optional)</Text>
+      <Text style={styles.label}>Marca de aceite (opcional)</Text>
       <TextInput
         style={styles.input}
         value={brand}
         onChangeText={setBrand}
-        placeholder="e.g. Motul"
+        placeholder="ej. Motul"
       />
 
-      <Text style={styles.label}>Oil type (optional)</Text>
+      <Text style={styles.label}>Tipo de aceite (opcional)</Text>
       <TextInput
         style={styles.input}
         value={oilType}
         onChangeText={setOilType}
-        placeholder="e.g. 10W-40"
+        placeholder="ej. 10W-40"
       />
 
       <CheckBox
-        label="Oil filter changed"
+        label="Filtro de aceite cambiado"
         checked={oilFilterChanged}
         onToggle={() => setOilFilterChanged((prev) => !prev)}
       />
       <CheckBox
-        label="Air filter changed"
+        label="Filtro de aire cambiado"
         checked={airFilterChanged}
         onToggle={() => setAirFilterChanged((prev) => !prev)}
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSave}>
-        <Text style={styles.buttonText}>Save oil change</Text>
+        <Text style={styles.buttonText}>Guardar cambio de aceite</Text>
       </TouchableOpacity>
     </View>
   );

@@ -31,8 +31,8 @@ Maintenance rules (defaults):
 
 Requirements: Node 22 + npm 10, and the Expo Go app from the Play Store.
 
-This project is pinned to **Expo SDK 53** (`expo ~53.0.0`, React 19.0.0,
-React Native 0.79.6), which the current Play Store Expo Go supports, so no
+This project is pinned to **Expo SDK 57** (`expo ~57.0.0`, React 19.2.3,
+React Native 0.86.3), which the current Play Store Expo Go supports, so no
 sideload or dev build is needed. Just make sure Expo Go itself is updated to
 the latest version from the Play Store before scanning.
 

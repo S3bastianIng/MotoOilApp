@@ -11,10 +11,10 @@ import SettingsScreen from './src/screens/SettingsScreen';
 type Tab = 'dashboard' | 'register' | 'history' | 'settings';
 
 const TABS: { key: Tab; label: string }[] = [
-  { key: 'dashboard', label: 'Dashboard' },
-  { key: 'register', label: 'Register' },
-  { key: 'history', label: 'History' },
-  { key: 'settings', label: 'Settings' },
+  { key: 'dashboard', label: 'Panel' },
+  { key: 'register', label: 'Registrar' },
+  { key: 'history', label: 'Historial' },
+  { key: 'settings', label: 'Ajustes' },
 ];
 
 export default function App() {

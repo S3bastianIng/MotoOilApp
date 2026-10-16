@@ -19,7 +19,7 @@ interface Props {
 function DueBadge({ due }: { due: boolean }) {
   return (
     <View style={[styles.badge, due ? styles.badgeYes : styles.badgeNo]}>
-      <Text style={styles.badgeText}>{due ? 'YES' : 'NO'}</Text>
+      <Text style={styles.badgeText}>{due ? 'SÍ' : 'NO'}</Text>
     </View>
   );
 }
@@ -38,47 +38,47 @@ export default function DashboardScreen({ entries, settings }: Props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Dashboard</Text>
+      <Text style={styles.title}>Panel</Text>
 
       <View style={[styles.statusCard, statusStyle]}>
         <Text style={styles.statusText}>
           {status === 'DUE'
-            ? 'OIL CHANGE DUE'
+            ? 'CAMBIO DE ACEITE VENCIDO'
             : status === 'URGENT'
-              ? 'OIL CHANGE URGENT'
-              : 'OIL OK'}
+              ? 'CAMBIO DE ACEITE URGENTE'
+              : 'ACEITE EN ORDEN'}
         </Text>
       </View>
 
       <View style={styles.card}>
-        <Text style={styles.label}>Current odometer</Text>
+        <Text style={styles.label}>Odómetro actual</Text>
         <Text style={styles.value}>{settings.currentKm} km</Text>
       </View>
 
       <View style={styles.row}>
         <View style={[styles.card, styles.half]}>
-          <Text style={styles.label}>Since last change</Text>
+          <Text style={styles.label}>Desde el último cambio</Text>
           <Text style={styles.value}>{since} km</Text>
         </View>
         <View style={[styles.card, styles.half]}>
-          <Text style={styles.label}>Remaining</Text>
+          <Text style={styles.label}>Restantes</Text>
           <Text style={styles.value}>{remaining} km</Text>
         </View>
       </View>
 
       <View style={styles.card}>
-        <Text style={styles.label}>Next oil change at</Text>
+        <Text style={styles.label}>Próximo cambio de aceite</Text>
         <Text style={styles.value}>{next} km</Text>
-        <Text style={styles.hint}>(last change {last} km + interval {settings.oilInterval} km)</Text>
+        <Text style={styles.hint}>(último cambio {last} km + intervalo {settings.oilInterval} km)</Text>
       </View>
 
       <View style={styles.card}>
         <View style={styles.badgeRow}>
-          <Text style={styles.label}>Oil filter due on next change</Text>
+          <Text style={styles.label}>Filtro de aceite en el próximo cambio</Text>
           <DueBadge due={oilFilterDue} />
         </View>
         <View style={styles.badgeRow}>
-          <Text style={styles.label}>Air filter due on next change</Text>
+          <Text style={styles.label}>Filtro de aire en el próximo cambio</Text>
           <DueBadge due={airFilterDue} />
         </View>
       </View>

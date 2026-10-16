@@ -31,8 +31,8 @@ export default function SettingsScreen({ settings, onSave }: Props) {
       parsed.currentKm < 0
     ) {
       Alert.alert(
-        'Invalid values',
-        'Intervals must be greater than 0 and the odometer must be 0 or higher.',
+        'Valores no válidos',
+        'Los intervalos deben ser mayores que 0 y el odómetro debe ser 0 o mayor.',
       );
       return;
     }
@@ -42,17 +42,17 @@ export default function SettingsScreen({ settings, onSave }: Props) {
       airFilterKm: Math.floor(parsed.airFilterKm),
       currentKm: Math.floor(parsed.currentKm),
     });
-    Alert.alert('Saved', 'Settings updated.');
+    Alert.alert('Guardado', 'Ajustes actualizados.');
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Settings</Text>
+      <Text style={styles.title}>Ajustes</Text>
       <Text style={styles.hint}>
-        Defaults: oil every 2500 km, oil filter every 5000 km, air filter every 7500 km.
+        Valores predeterminados: aceite cada 2500 km, filtro de aceite cada 5000 km, filtro de aire cada 7500 km.
       </Text>
 
-      <Text style={styles.label}>Oil change interval (km)</Text>
+      <Text style={styles.label}>Intervalo de cambio de aceite (km)</Text>
       <TextInput
         style={styles.input}
         value={oilInterval}
@@ -60,7 +60,7 @@ export default function SettingsScreen({ settings, onSave }: Props) {
         keyboardType="numeric"
       />
 
-      <Text style={styles.label}>Oil filter interval (km)</Text>
+      <Text style={styles.label}>Intervalo de filtro de aceite (km)</Text>
       <TextInput
         style={styles.input}
         value={oilFilterKm}
@@ -68,7 +68,7 @@ export default function SettingsScreen({ settings, onSave }: Props) {
         keyboardType="numeric"
       />
 
-      <Text style={styles.label}>Air filter interval (km)</Text>
+      <Text style={styles.label}>Intervalo de filtro de aire (km)</Text>
       <TextInput
         style={styles.input}
         value={airFilterKm}
@@ -76,7 +76,7 @@ export default function SettingsScreen({ settings, onSave }: Props) {
         keyboardType="numeric"
       />
 
-      <Text style={styles.label}>Current odometer (km)</Text>
+      <Text style={styles.label}>Odómetro actual (km)</Text>
       <TextInput
         style={styles.input}
         value={currentKm}
@@ -85,7 +85,7 @@ export default function SettingsScreen({ settings, onSave }: Props) {
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSave}>
-        <Text style={styles.buttonText}>Save settings</Text>
+        <Text style={styles.buttonText}>Guardar ajustes</Text>
       </TouchableOpacity>
     </View>
   );
